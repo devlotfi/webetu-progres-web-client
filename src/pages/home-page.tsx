@@ -1,8 +1,9 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Card,
   CardBody,
+  CardHeader,
   Divider,
   Table,
   TableBody,
@@ -10,16 +11,18 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@nextui-org/react";
-import { useContext } from "react";
-import { DashboardDataContext } from "../context/dashboard-data-context";
+} from '@nextui-org/react';
+import { useContext } from 'react';
+import { DashboardDataContext } from '../context/dashboard-data-context';
 
 export default function HomePage() {
   const { image, bacIndividu } = useContext(DashboardDataContext);
 
   const formatZero = (value: number) => (value < 10 ? `0${value}` : value);
   const formatDate = (date: Date) => {
-    return `${date.getFullYear()}/${formatZero(date.getMonth() + 1)}/${formatZero(date.getDate())}`;
+    return `${date.getFullYear()}/${formatZero(
+      date.getMonth() + 1,
+    )}/${formatZero(date.getDate())}`;
   };
 
   return (
@@ -28,18 +31,20 @@ export default function HomePage() {
         Welcome to the Progres platform
       </div>
       <Card className="flex w-full lg:max-w-[45rem] shadow-none lg:shadow-xl lg:border lg:border-divider">
-        <CardBody className="space-y-5">
-          <div className="flex mt-[0.5rem] items-center ml-[0.5rem] space-x-3 text-primary font-bold text-[18pt]">
+        <CardHeader>
+          <div className="flex items-center space-x-3 text-primary font-bold text-[18pt]">
             <div className="flex h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
               <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
             </div>
             <div className="flex">User info</div>
           </div>
-          <Divider></Divider>
+        </CardHeader>
+        <Divider></Divider>
+        <CardBody className="space-y-5 p-0 pr-[1rem] pt-[1rem]">
           <div className="flex flex-col-reverse md:flex-row space-y-3 md:space-y-0 space-y-reverse space-x-reverse md:space-x-5 justify-between">
             <Table
               hideHeader
-              removeWrapper
+              isStriped
               shadow="none"
               aria-label="Example static collection table"
             >
@@ -119,7 +124,7 @@ export default function HomePage() {
             </Table>
 
             <img
-              className="flex self-start rounded-lg border border-divider"
+              className="flex self-start rounded-lg border border-divider ml-[1rem] h-[10rem]"
               src={`data:image/jpeg;base64,${image}`}
               alt="user"
             />

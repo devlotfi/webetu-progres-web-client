@@ -5,10 +5,10 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-} from "@nextui-org/react";
-import { useContext } from "react";
-import { AuthContext } from "../context/auth-context";
-import { Constants } from "../constants";
+} from '@nextui-org/react';
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth-context';
+import { Constants } from '../constants';
 
 interface Props {
   isOpen: boolean;

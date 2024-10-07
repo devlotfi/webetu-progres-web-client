@@ -1,20 +1,20 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import SignInPage from "../pages/sign-in-page";
-import NotProtectedRoute from "./not-protected-route";
-import ProtectedRoute from "./protected-route";
-import DashboardLayout from "../layout/dashboard-layout";
-import HomePage from "../pages/home-page";
-import DashboardDataProvider from "../context/dashboard-data-context";
-import BacMarksPage from "../pages/bac-marks-page";
-import GroupPage from "../pages/group-page";
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import SignInPage from '../pages/sign-in-page';
+import NotProtectedRoute from './not-protected-route';
+import ProtectedRoute from './protected-route';
+import DashboardLayout from '../layout/dashboard-layout';
+import HomePage from '../pages/home-page';
+import DashboardDataProvider from '../context/dashboard-data-context';
+import BacMarksPage from '../pages/bac-marks-page';
+import DiasPage from '../pages/dias-page';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Navigate to="/sign-in"></Navigate>,
   },
   {
-    path: "/sign-in",
+    path: '/sign-in',
     element: (
       <NotProtectedRoute>
         <SignInPage></SignInPage>
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/dashboard",
+    path: '/dashboard',
     element: (
       <ProtectedRoute>
         <DashboardDataProvider>
@@ -32,16 +32,16 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard",
+        path: '/dashboard',
         element: <HomePage></HomePage>,
       },
       {
-        path: "/dashboard/bac",
+        path: '/dashboard/bac',
         element: <BacMarksPage></BacMarksPage>,
       },
       {
-        path: "/dashboard/group",
-        element: <GroupPage></GroupPage>,
+        path: '/dashboard/dias',
+        element: <DiasPage></DiasPage>,
       },
     ],
   },

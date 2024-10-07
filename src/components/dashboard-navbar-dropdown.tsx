@@ -3,8 +3,8 @@ import {
   faMoon,
   faPowerOff,
   faSun,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Dropdown,
   DropdownTrigger,
@@ -12,11 +12,11 @@ import {
   DropdownMenu,
   DropdownSection,
   DropdownItem,
-} from "@nextui-org/react";
-import { useContext } from "react";
-import { ThemeContext } from "../context/theme-context";
-import { ThemeOptions } from "../types/theme-options";
-import { DashboardDataContext } from "../context/dashboard-data-context";
+} from '@nextui-org/react';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/theme-context';
+import { ThemeOptions } from '../types/theme-options';
+import { DashboardDataContext } from '../context/dashboard-data-context';
 
 interface Props {
   openSignOutModal: () => void;
@@ -30,7 +30,7 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
     <Dropdown>
       <DropdownTrigger>
         <div className="flex items-center space-x-3">
-          <div className="hidden md:flex flex-col leading-4 items-end font-bold text-primary">
+          <div className="hidden md:flex flex-col leading-4 items-end font-bold">
             <div className="flex">
               {bacIndividu?.nomLatin} {bacIndividu?.prenomLatin}
             </div>
@@ -42,7 +42,7 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
             color="primary"
             isBordered
             src={`data:image/jpeg;base64,${image}`}
-            imgProps={{ referrerPolicy: "no-referrer" }}
+            imgProps={{ referrerPolicy: 'no-referrer' }}
             as="button"
           ></Avatar>
         </div>
@@ -63,7 +63,7 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
               case ThemeOptions.DARK:
                 setTheme(ThemeOptions.DARK);
                 break;
-              case "sign-out":
+              case 'sign-out':
                 openSignOutModal();
                 break;
             }

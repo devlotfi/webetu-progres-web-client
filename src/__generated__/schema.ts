@@ -369,10 +369,10 @@ export interface components {
             ofCodeFiliere: string;
             ofLlFiliereArabe: string;
             ofLlFiliere: string;
-            ofIdSpecialite: number;
-            ofCodeSpecialite: string;
-            ofLlSpecialiteArabe: string;
-            ofLlSpecialite: string;
+            ofIdSpecialite?: number;
+            ofCodeSpecialite?: string;
+            ofLlSpecialiteArabe?: string;
+            ofLlSpecialite?: string;
             individuId: number;
             nin: string;
             individuNomArabe: string;
@@ -397,7 +397,8 @@ export interface components {
             niveauRang: number;
             niveauLibelleLongLt: string;
             niveauLibelleLongAr: string;
-            fraisInscriptionPaye: boolean;
+            fraisInscriptionPaye?: boolean;
+            transportPaye?: boolean;
         };
         NiveauPeriodesDTO: {
             id: number;

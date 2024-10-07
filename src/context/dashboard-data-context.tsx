@@ -1,13 +1,14 @@
-import { createContext, PropsWithChildren, useContext, useState } from "react";
-import { components } from "../__generated__/schema";
-import { $api } from "../open-api-client";
-import { AuthContext } from "./auth-context";
-import { Spinner } from "@nextui-org/react";
+import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { components } from '../__generated__/schema';
+import { $api } from '../open-api-client';
+import { AuthContext } from './auth-context';
+import { Spinner } from '@nextui-org/react';
+import Logo from '../assets/svg/logo.svg';
 
 interface DashboardDataContext {
   image?: string;
-  bacIndividu?: components["schemas"]["BacIndivuduDTO"];
-  anneeAcademique?: components["schemas"]["AnneeAcademiqueDTO"];
+  bacIndividu?: components['schemas']['BacIndivuduDTO'];
+  anneeAcademique?: components['schemas']['AnneeAcademiqueDTO'];
 
   sidebarOpen: boolean;
   setSidebarOpen: (value: boolean) => void;
@@ -25,29 +26,30 @@ export default function DashboardDataProvider({ children }: PropsWithChildren) {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
 
   if (!authData) {
-    throw new Error("No user");
+    throw new Error('No user');
   }
 
-  const { data: imageData, isPending: imageIsPending } = $api.useQuery(
-    "get",
-    "/api/infos/image/{userUUID}",
+  const { data: imageData, isLoading: imageIsLoading } = $api.useQuery(
+    'get',
+    '/api/infos/image/{userUUID}',
     {
       params: {
         path: {
           userUUID: authData.uuid,
         },
       },
-      parseAs: "text",
+      parseAs: 'text',
     },
     {
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
-    }
+      retry: true,
+    },
   );
 
-  const { data: bacIndividuData, isPending: bacIndividuIsPending } =
-    $api.useQuery("get", "/api/infos/bac/{userUUID}/individu", {
+  const { data: bacIndividuData, isLoading: bacIndividuIsLoading } =
+    $api.useQuery('get', '/api/infos/bac/{userUUID}/individu', {
       params: {
         path: {
           userUUID: authData.uuid,
@@ -55,12 +57,13 @@ export default function DashboardDataProvider({ children }: PropsWithChildren) {
       },
     });
 
-  const { data: anneeAcademiqueData, isPending: anneeAcademiqueIsPending } =
-    $api.useQuery("get", "/api/infos/AnneeAcademiqueEncours");
+  const { data: anneeAcademiqueData, isLoading: anneeAcademiqueIsLoading } =
+    $api.useQuery('get', '/api/infos/AnneeAcademiqueEncours');
 
-  if (imageIsPending || bacIndividuIsPending || anneeAcademiqueIsPending) {
+  if (imageIsLoading || bacIndividuIsLoading || anneeAcademiqueIsLoading) {
     return (
       <div className="fixed h-screen w-screen top-0 left-0 flex flex-col justify-center items-center space-y-7">
+        <img className="h-[7rem]" src={Logo} alt="logo" />
         <Spinner color="primary" size="lg"></Spinner>
       </div>
     );

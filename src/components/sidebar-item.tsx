@@ -1,7 +1,7 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, ButtonProps, cn } from "@nextui-org/react";
-import { PropsWithChildren } from "react";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, ButtonProps, cn } from '@nextui-org/react';
+import { PropsWithChildren } from 'react';
 
 interface Props extends ButtonProps, PropsWithChildren {
   active: boolean;
@@ -16,8 +16,8 @@ export default function SidebarItem({
 }: Props) {
   return (
     <Button
-      variant={active ? "solid" : "light"}
-      color={active ? "primary" : "default"}
+      variant={active ? 'solid' : 'light'}
+      color={active ? 'primary' : 'default'}
       className="p-0 h-[2.8rem] rounded-full"
       {...props}
     >
@@ -26,8 +26,8 @@ export default function SidebarItem({
         <div className="flex h-[2.8rem] w-[2.8rem] justify-center items-center">
           <div
             className={cn(
-              "flex bg-background h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full border border-divider",
-              active && "text-primary h-[2.3rem] w-[2.3rem] border-none"
+              'flex bg-background h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full border border-divider',
+              active && 'text-primary h-[2.3rem] w-[2.3rem] border-none',
             )}
           >
             <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
