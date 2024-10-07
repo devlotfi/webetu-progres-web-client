@@ -1,11 +1,15 @@
-import { Button, Card, Spinner, Tooltip } from '@nextui-org/react';
-import { useContext } from 'react';
+import { Button, Card, Spinner } from '@nextui-org/react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../context/auth-context';
 import { $api } from '../open-api-client';
+import { components } from '../__generated__/schema';
 import DiaItem from './dia-item';
 
 export default function DiaSelector() {
   const { authData } = useContext(AuthContext);
+  const [selectedDia, setSelectedDia] = useState<
+    components['schemas']['DiaDTO'] | null
+  >(null);
 
   if (!authData) {
     throw new Error('No user');
@@ -36,18 +40,19 @@ export default function DiaSelector() {
   }
 
   return (
-    <div className="flex overflow-x-auto w-full space-x-7 py-[1rem] px-[3rem]">
-      {data.map((dia) => (
-        <Tooltip
-          showArrow={true}
-          placement="bottom"
-          content={<DiaItem dia={dia}></DiaItem>}
-        >
-          <Button variant="faded" className="px-[2rem] min-w-[10rem]">
+    <div className="flex flex-col overflow-x-hidden w-full">
+      <div className="flex overflow-x-auto space-x-7 py-[1rem] px-[3rem]">
+        {data.map((dia) => (
+          <Button
+            onPress={() => setSelectedDia(dia)}
+            variant="faded"
+            className="px-[2rem] min-w-[10rem]"
+          >
             {dia.anneeAcademiqueCode}
           </Button>
-        </Tooltip>
-      ))}
+        ))}
+      </div>
+      <h1>lol</h1>
     </div>
   );
 }
