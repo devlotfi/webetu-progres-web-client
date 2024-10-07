@@ -5,6 +5,7 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
   faHome,
+  faPen,
   faScroll,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
@@ -75,6 +76,13 @@ export default function DashboardLayout() {
           </SidebarItem>
           <SidebarItem
             icon={faUserGroup}
+            active={location.pathname === '/dashboard/groupes'}
+            onPress={() => sidebarNavigate('/dashboard/groupes')}
+          >
+            Groupes
+          </SidebarItem>
+          <SidebarItem
+            icon={faPen}
             active={location.pathname === '/dashboard/dias'}
             onPress={() => sidebarNavigate('/dashboard/dias')}
           >
@@ -83,7 +91,7 @@ export default function DashboardLayout() {
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col sm:rounded-2xl bg-background border-divider sm:border">
+      <div className="flex flex-1 flex-col sm:rounded-2xl bg-background border-divider sm:border overflow-x-hidden">
         <div className="flex h-[4rem] px-[0.7rem] items-center justify-between border-b border-divider">
           <div className="flex items-center space-x-3">
             <Button

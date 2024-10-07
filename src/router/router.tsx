@@ -7,6 +7,7 @@ import HomePage from '../pages/home-page';
 import DashboardDataProvider from '../context/dashboard-data-context';
 import BacMarksPage from '../pages/bac-marks-page';
 import DiasPage from '../pages/dias-page';
+import GroupsPage from '../pages/groups-page';
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/bac',
         element: <BacMarksPage></BacMarksPage>,
+      },
+      {
+        path: '/dashboard/groupes',
+        element: <GroupsPage></GroupsPage>,
       },
       {
         path: '/dashboard/dias',
