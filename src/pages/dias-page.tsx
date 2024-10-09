@@ -1,36 +1,14 @@
 import { useContext } from 'react';
-import { $api } from '../open-api-client';
-import { AuthContext } from '../context/auth-context';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Spinner } from '@nextui-org/react';
 import DiaItem from '../components/dia-item';
+import { DashboardDataContext } from '../context/dashboard-data-context';
 
 export default function DiasPage() {
-  const { authData } = useContext(AuthContext);
+  const { dias } = useContext(DashboardDataContext);
 
-  if (!authData) {
-    throw new Error('No user');
-  }
-
-  const { data, isLoading } = $api.useQuery(
-    'get',
-    '/api/infos/bac/{userUUID}/dias',
-    {
-      params: {
-        path: {
-          userUUID: authData?.uuid,
-        },
-      },
-    },
-  );
-
-  if (isLoading) {
-    return (
-      <div className="flex flex-col flex-1 justify-center items-center">
-        <Spinner size="lg" color="primary"></Spinner>
-      </div>
-    );
+  if (!dias) {
+    return;
   }
 
   return (
@@ -44,7 +22,7 @@ export default function DiasPage() {
         </div>
 
         <div className="flex flex-col space-y-5 pb-[5rem]">
-          {data?.map((dia) => (
+          {dias.map((dia) => (
             <DiaItem key={dia.id} dia={dia}></DiaItem>
           ))}
         </div>

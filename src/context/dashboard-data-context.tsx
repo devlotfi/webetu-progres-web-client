@@ -9,6 +9,7 @@ interface DashboardDataContext {
   image?: string;
   bacIndividu?: components['schemas']['BacIndivuduDTO'];
   anneeAcademique?: components['schemas']['AnneeAcademiqueDTO'];
+  dias?: components['schemas']['DiaDTO'][];
 
   sidebarOpen: boolean;
   setSidebarOpen: (value: boolean) => void;
@@ -60,7 +61,24 @@ export default function DashboardDataProvider({ children }: PropsWithChildren) {
   const { data: anneeAcademiqueData, isLoading: anneeAcademiqueIsLoading } =
     $api.useQuery('get', '/api/infos/AnneeAcademiqueEncours');
 
-  if (imageIsLoading || bacIndividuIsLoading || anneeAcademiqueIsLoading) {
+  const { data: diasData, isLoading: diasIsLoading } = $api.useQuery(
+    'get',
+    '/api/infos/bac/{userUUID}/dias',
+    {
+      params: {
+        path: {
+          userUUID: authData.uuid,
+        },
+      },
+    },
+  );
+
+  if (
+    imageIsLoading ||
+    bacIndividuIsLoading ||
+    anneeAcademiqueIsLoading ||
+    diasIsLoading
+  ) {
     return (
       <div className="fixed h-screen w-screen top-0 left-0 flex flex-col justify-center items-center space-y-7">
         <img className="h-[7rem]" src={Logo} alt="logo" />
@@ -75,6 +93,7 @@ export default function DashboardDataProvider({ children }: PropsWithChildren) {
         image: imageData,
         bacIndividu: bacIndividuData,
         anneeAcademique: anneeAcademiqueData,
+        dias: diasData,
         sidebarOpen,
         setSidebarOpen,
       }}

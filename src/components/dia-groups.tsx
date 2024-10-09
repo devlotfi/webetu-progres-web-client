@@ -58,7 +58,7 @@ export default function DiaGroups({ dia }: Props) {
   return (
     <div className="flex flex-col p-[1rem] space-y-3">
       {getGroups().map((group) => (
-        <Card shadow="none" className="bg-content2">
+        <Card>
           <CardHeader className="font-bold">
             {group.periodeLibelleLongLt}
           </CardHeader>

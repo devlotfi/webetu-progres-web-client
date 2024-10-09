@@ -1,58 +1,51 @@
-import { Button, Card, Spinner } from '@nextui-org/react';
-import { useContext, useState } from 'react';
+import { Button } from '@nextui-org/react';
+import { useContext } from 'react';
 import { AuthContext } from '../context/auth-context';
-import { $api } from '../open-api-client';
-import { components } from '../__generated__/schema';
-import DiaItem from './dia-item';
+import { DashboardDataContext } from '../context/dashboard-data-context';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { DiaSelectorContext } from '../context/dia-selector-context';
 
 export default function DiaSelector() {
   const { authData } = useContext(AuthContext);
-  const [selectedDia, setSelectedDia] = useState<
-    components['schemas']['DiaDTO'] | null
-  >(null);
+  const { dias } = useContext(DashboardDataContext);
+  const { dia: selectedDia, setDia } = useContext(DiaSelectorContext);
 
   if (!authData) {
     throw new Error('No user');
   }
 
-  const { data, isLoading } = $api.useQuery(
-    'get',
-    '/api/infos/bac/{userUUID}/dias',
-    {
-      params: {
-        path: {
-          userUUID: authData?.uuid,
-        },
-      },
-    },
-  );
-
-  if (isLoading) {
-    return (
-      <div className="flex flex-col flex-1 justify-center items-center">
-        <Spinner size="lg" color="primary"></Spinner>
-      </div>
-    );
-  }
-
-  if (!data) {
+  if (!dias) {
     return;
   }
 
   return (
-    <div className="flex flex-col overflow-x-hidden w-full">
-      <div className="flex overflow-x-auto space-x-7 py-[1rem] px-[3rem]">
-        {data.map((dia) => (
+    <div className="flex flex-col overflow-x-hidden">
+      <div className="flex ml-[1.5rem] items-center space-x-3 text-primary font-bold text-[15pt]">
+        <div className="flex h-[2.3rem] w-[2.3rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
+          <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+        </div>
+        <div className="flex">Choisir une periode</div>
+      </div>
+
+      <div className="flex overflow-x-auto space-x-5 py-[1rem] px-[1rem]">
+        {dias.map((dia) => (
           <Button
-            onPress={() => setSelectedDia(dia)}
-            variant="faded"
-            className="px-[2rem] min-w-[10rem]"
+            key={dia.id}
+            onPress={() => setDia(dia)}
+            variant={selectedDia?.id === dia.id ? 'solid' : 'faded'}
+            color={selectedDia?.id === dia.id ? 'primary' : 'default'}
+            className="px-[2rem] min-w-[10rem] h-auto"
           >
-            {dia.anneeAcademiqueCode}
+            <div className="flex flex-col items-center py-[0.5rem]">
+              <div className="flex font-bold text-[12pt]">
+                {dia.anneeAcademiqueCode}
+              </div>
+              <div className="flex">{dia.niveauLibelleLongLt}</div>
+            </div>
           </Button>
         ))}
       </div>
-      <h1>lol</h1>
     </div>
   );
 }

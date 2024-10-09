@@ -41,13 +41,13 @@ export default function DashboardLayout() {
         className={cn(
           'absolute top-0 lg:static h-screen sm:ml-[-0.7rem] lg:h-auto border-r border-divider lg:border-none rounded-tr-xl rounded-br-xl flex flex-col bg-content2 w-[17rem] px-[0.7rem] overflow-x-hidden duration-300 space-y-8 z-40',
           !sidebarOpen &&
-            'ml-[-17rem] sm:ml-[-17rem] lg:ml-[-17rem] border-none',
+            'ml-[-17rem] sm:ml-[-17rem] lg:ml-[-17rem] border-none scrollbar-hide',
         )}
       >
         <div className="flex justify-end pt-[1rem] lg:hidden">
           <Button
             isIconOnly
-            variant="flat"
+            variant="faded"
             onPress={() => setSidebarOpen(false)}
           >
             <FontAwesomeIcon icon={faAngleDoubleLeft}></FontAwesomeIcon>
@@ -56,7 +56,6 @@ export default function DashboardLayout() {
         <Divider className="lg:hidden pt-0"></Divider>
         <div className="flex flex-col items-center space-y-3 mt-[1.5rem]">
           <img className="h-[5rem]" src={Logo} alt="logo" />
-          <div className="flex font-bold text-[15pt]">Progres</div>
         </div>
         <Divider></Divider>
         <div className="flex flex-col space-y-2">
@@ -65,14 +64,14 @@ export default function DashboardLayout() {
             active={location.pathname === '/dashboard'}
             onPress={() => sidebarNavigate('/dashboard')}
           >
-            Home
+            Acceuil
           </SidebarItem>
           <SidebarItem
             icon={faScroll}
             active={location.pathname === '/dashboard/bac'}
             onPress={() => sidebarNavigate('/dashboard/bac')}
           >
-            Bac marks
+            Notes bac
           </SidebarItem>
           <SidebarItem
             icon={faUserGroup}
@@ -121,7 +120,7 @@ export default function DashboardLayout() {
           ></SignOutModal>
         </div>
 
-        <div className="flex flex-1 overflow-y-auto">
+        <div className="flex flex-1 flex-col overflow-y-auto">
           <Outlet></Outlet>
         </div>
       </div>

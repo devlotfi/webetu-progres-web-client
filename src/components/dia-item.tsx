@@ -184,6 +184,7 @@ export default function DiaItem({ dia }: Props) {
           <img
             className="flex self-start h-[10rem] p-[0.5rem]"
             src={`data:image/jpeg;base64,${data}`}
+            loading="lazy"
             alt="etablissement"
           />
         )}
