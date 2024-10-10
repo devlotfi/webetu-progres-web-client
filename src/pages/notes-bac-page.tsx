@@ -15,8 +15,10 @@ import {
   TableHeader,
   TableRow,
 } from '@nextui-org/react';
+import { useTranslation } from 'react-i18next';
 
-export default function BacMarksPage() {
+export default function NotesBacPage() {
+  const { t } = useTranslation();
   const { authData } = useContext(AuthContext);
 
   if (!authData) {
@@ -56,14 +58,14 @@ export default function BacMarksPage() {
               <div className="flex h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
                 <FontAwesomeIcon icon={faScroll}></FontAwesomeIcon>
               </div>
-              <div className="flex">Bac marks</div>
+              <div className="flex">{t('bacMarks')}</div>
             </div>
           </CardHeader>
           <Divider></Divider>
           <Table isStriped aria-label="marks" shadow="none">
             <TableHeader>
-              <TableColumn>Matiere</TableColumn>
-              <TableColumn>Note</TableColumn>
+              <TableColumn>{t('subject')}</TableColumn>
+              <TableColumn>{t('mark')}</TableColumn>
             </TableHeader>
             <TableBody>
               {data.map((bacMark) => (

@@ -1,9 +1,9 @@
-import DiaSelector from '../components/dia-selector';
 import { useContext } from 'react';
-import DiaGroupes from '../components/dia-groups';
+import DiaSelector from '../components/dia-selector';
 import { DiaSelectorContext } from '../context/dia-selector-context';
+import DiaReleveDeNotes from '../components/dia-releve-de-notes';
 
-export default function GroupsPage() {
+export default function ReleveDeNotesPage() {
   const { dia } = useContext(DiaSelectorContext);
 
   return (
@@ -11,7 +11,7 @@ export default function GroupsPage() {
       <div className="flex flex-col w-full max-w-[55rem]">
         <DiaSelector></DiaSelector>
 
-        {dia ? <DiaGroupes dia={dia}></DiaGroupes> : null}
+        {dia ? <DiaReleveDeNotes dia={dia}></DiaReleveDeNotes> : null}
       </div>
     </div>
   );

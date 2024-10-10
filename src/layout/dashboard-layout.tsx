@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
+  faFolderOpen,
   faHome,
   faPen,
   faScroll,
@@ -15,11 +16,16 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import DashboardNavbarDropdown from '../components/dashboard-navbar-dropdown';
 import SignOutModal from '../components/sign-out-modal';
 import SidebarItem from '../components/sidebar-item';
+import { useTranslation } from 'react-i18next';
+import { ThemeOptions } from '../types/theme-options';
+import { ThemeContext } from '../context/theme-context';
 
 export default function DashboardLayout() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const { sidebarOpen, setSidebarOpen } = useContext(DashboardDataContext);
+  const { appliedTheme } = useContext(ThemeContext);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const sidebarNavigate = (path: string) => {
@@ -64,14 +70,14 @@ export default function DashboardLayout() {
             active={location.pathname === '/dashboard'}
             onPress={() => sidebarNavigate('/dashboard')}
           >
-            Acceuil
+            {t('home')}
           </SidebarItem>
           <SidebarItem
             icon={faScroll}
             active={location.pathname === '/dashboard/bac'}
             onPress={() => sidebarNavigate('/dashboard/bac')}
           >
-            Notes bac
+            {t('bacMarks')}
           </SidebarItem>
           <SidebarItem
             icon={faUserGroup}
@@ -81,11 +87,18 @@ export default function DashboardLayout() {
             Groupes
           </SidebarItem>
           <SidebarItem
+            icon={faFolderOpen}
+            active={location.pathname === '/dashboard/releve-de-notes'}
+            onPress={() => sidebarNavigate('/dashboard/releve-de-notes')}
+          >
+            {t('transcripts')}
+          </SidebarItem>
+          <SidebarItem
             icon={faPen}
             active={location.pathname === '/dashboard/dias'}
             onPress={() => sidebarNavigate('/dashboard/dias')}
           >
-            Inscriptions
+            {t('inscriptions')}
           </SidebarItem>
         </div>
       </div>
@@ -120,7 +133,14 @@ export default function DashboardLayout() {
           ></SignOutModal>
         </div>
 
-        <div className="flex flex-1 flex-col overflow-y-auto">
+        <div
+          className={cn(
+            'flex flex-1 flex-col overflow-y-auto',
+            appliedTheme === ThemeOptions.LIGHT
+              ? 'home-bg-light'
+              : 'home-bg-dark',
+          )}
+        >
           <Outlet></Outlet>
         </div>
       </div>

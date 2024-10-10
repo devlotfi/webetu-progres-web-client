@@ -2,24 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.sign-in-bg-light {
-  background-image: radial-gradient(#f9fafb 30%, transparent),
-    radial-gradient(#019577 0.1rem, #f9fafb 0.1rem);
-  background-size: 100% 100%, 3rem 3rem, 3rem 3rem;
-}
-
 @media (min-width: 1024px) {
   .home-bg-light {
-    background-image: radial-gradient(#ffffff 30%, transparent),
-      radial-gradient(#019577 0.1rem, #ffffff 0.1rem);
+    background-image: radial-gradient(#ffffff 50%, transparent),
+      radial-gradient(#01957788 0.1rem, #ffffff 0.1rem);
     background-size: 100% 100%, 3rem 3rem, 3rem 3rem;
   }
 
   .home-bg-dark {
-    background-image: radial-gradient(#313134 30%, transparent),
-      radial-gradient(#019577 0.1rem, #313134 0.1rem);
+    background-image: radial-gradient(#313134 50%, transparent),
+      radial-gradient(#01957788 0.1rem, #313134 0.1rem);
     background-size: 100% 100%, 3rem 3rem, 3rem 3rem;
   }
+}
+
+.sign-in-bg-light {
+  background-image: radial-gradient(#f9fafb 30%, transparent),
+    radial-gradient(#019577 0.1rem, #f9fafb 0.1rem);
+  background-size: 100% 100%, 3rem 3rem, 3rem 3rem;
 }
 
 .sign-in-bg-dark {

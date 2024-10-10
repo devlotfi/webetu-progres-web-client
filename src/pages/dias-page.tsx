@@ -3,8 +3,10 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DiaItem from '../components/dia-item';
 import { DashboardDataContext } from '../context/dashboard-data-context';
+import { useTranslation } from 'react-i18next';
 
 export default function DiasPage() {
+  const { t } = useTranslation();
   const { dias } = useContext(DashboardDataContext);
 
   if (!dias) {
@@ -18,7 +20,7 @@ export default function DiasPage() {
           <div className="flex h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
             <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
           </div>
-          <div className="flex">Inscriptions</div>
+          <div className="flex">{t('inscriptions')}</div>
         </div>
 
         <div className="flex flex-col space-y-5 pb-[5rem]">

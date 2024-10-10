@@ -5,10 +5,11 @@ import ProtectedRoute from './protected-route';
 import DashboardLayout from '../layout/dashboard-layout';
 import HomePage from '../pages/home-page';
 import DashboardDataProvider from '../context/dashboard-data-context';
-import BacMarksPage from '../pages/bac-marks-page';
+import NotesBacPage from '../pages/notes-bac-page';
 import DiasPage from '../pages/dias-page';
 import GroupsPage from '../pages/groups-page';
 import DiaSelectorProvider from '../context/dia-selector-context';
+import ReleveDeNotesPage from '../pages/releve-de-notes-page';
 
 export const router = createBrowserRouter([
   {
@@ -39,13 +40,21 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/bac',
-        element: <BacMarksPage></BacMarksPage>,
+        element: <NotesBacPage></NotesBacPage>,
       },
       {
         path: '/dashboard/groupes',
         element: (
           <DiaSelectorProvider>
             <GroupsPage></GroupsPage>
+          </DiaSelectorProvider>
+        ),
+      },
+      {
+        path: '/dashboard/releve-de-notes',
+        element: (
+          <DiaSelectorProvider>
+            <ReleveDeNotesPage></ReleveDeNotesPage>
           </DiaSelectorProvider>
         ),
       },

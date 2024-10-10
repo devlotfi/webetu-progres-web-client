@@ -9,6 +9,7 @@ import {
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth-context';
 import { Constants } from '../constants';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   isOpen: boolean;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 export default function SignOutModal({ isOpen, onOpenChange }: Props) {
+  const { t } = useTranslation();
   const { setAuthData } = useContext(AuthContext);
 
   return (
@@ -24,14 +26,14 @@ export default function SignOutModal({ isOpen, onOpenChange }: Props) {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
-              Sign out confirmation
+              {t('signOutModalTitle')}
             </ModalHeader>
             <ModalBody>
-              <p>Are you sure you want to sign out ?</p>
+              <p>{t('signOutModalContent')}</p>
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
-                Cancel
+                {t('cancel')}
               </Button>
               <Button
                 color="danger"
@@ -40,7 +42,7 @@ export default function SignOutModal({ isOpen, onOpenChange }: Props) {
                   setAuthData(null);
                 }}
               >
-                Sign out
+                {t('signOut')}
               </Button>
             </ModalFooter>
           </>

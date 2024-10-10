@@ -4,7 +4,6 @@ import {
   Card,
   CardBody,
   CardHeader,
-  cn,
   Divider,
   Table,
   TableBody,
@@ -15,12 +14,11 @@ import {
 } from '@nextui-org/react';
 import { useContext } from 'react';
 import { DashboardDataContext } from '../context/dashboard-data-context';
-import { ThemeContext } from '../context/theme-context';
-import { ThemeOptions } from '../types/theme-options';
 import Progres from '../assets/svg/progres.svg';
+import { useTranslation } from 'react-i18next';
 
 export default function HomePage() {
-  const { appliedTheme } = useContext(ThemeContext);
+  const { t, i18n } = useTranslation();
   const { image, bacIndividu } = useContext(DashboardDataContext);
 
   const formatZero = (value: number) => (value < 10 ? `0${value}` : value);
@@ -31,14 +29,9 @@ export default function HomePage() {
   };
 
   return (
-    <div
-      className={cn(
-        'flex flex-1 flex-col items-center space-y-7',
-        appliedTheme === ThemeOptions.LIGHT ? 'home-bg-light' : 'home-bg-dark',
-      )}
-    >
+    <div className="flex flex-1 flex-col items-center space-y-7">
       <div className="flex flex-col items-center lg:max-w-[45rem] w-full pt-[3rem]">
-        <img className="h-[7rem] px-[1rem]" src={Progres} alt="progres" />
+        <img className="h-[5rem] px-[1rem]" src={Progres} alt="progres" />
         <Divider className="my-[1rem]"></Divider>
         <Card className="flex shadow-none w-full lg:shadow-xl lg:border lg:border-divider">
           <CardHeader>
@@ -46,7 +39,7 @@ export default function HomePage() {
               <div className="flex h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
                 <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
               </div>
-              <div className="flex">Utilisateur</div>
+              <div className="flex">{t('user')}</div>
             </div>
           </CardHeader>
           <Divider></Divider>
@@ -65,39 +58,41 @@ export default function HomePage() {
                 <TableBody className="p-0">
                   <TableRow>
                     <TableCell className="text-primary font-bold break-words break-all">
-                      Nom:
+                      {t('lastName')}:
                     </TableCell>
                     <TableCell>
-                      <div className="flex flex-col">
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.nomLatin}
-                        </div>
+                      {i18n.language === 'ar' ? (
                         <div className="flex break-words break-all">
                           {bacIndividu?.nomArabe}
                         </div>
-                      </div>
+                      ) : (
+                        <div className="flex break-words break-all">
+                          {bacIndividu?.nomLatin}
+                        </div>
+                      )}
                     </TableCell>
                   </TableRow>
 
                   <TableRow>
                     <TableCell className="text-primary font-bold break-words break-all">
-                      Prenom:
+                      {t('firstName')}:
                     </TableCell>
                     <TableCell>
-                      <div className="flex flex-col">
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.prenomLatin}
-                        </div>
+                      {i18n.language === 'ar' ? (
                         <div className="flex break-words break-all">
                           {bacIndividu?.prenomArabe}
                         </div>
-                      </div>
+                      ) : (
+                        <div className="flex break-words break-all">
+                          {bacIndividu?.prenomLatin}
+                        </div>
+                      )}
                     </TableCell>
                   </TableRow>
 
                   <TableRow>
                     <TableCell className="text-primary font-bold break-words break-all">
-                      Date de naissance:
+                      {t('birthDate')}:
                     </TableCell>
                     <TableCell className="break-words break-all">
                       {bacIndividu?.dateNaissance
@@ -108,23 +103,24 @@ export default function HomePage() {
 
                   <TableRow>
                     <TableCell className="text-primary font-bold break-words break-all">
-                      Lieu de naissance:
+                      {t('birthPlace')}:
                     </TableCell>
                     <TableCell>
-                      <div className="flex flex-col">
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.lieuNaissance}
-                        </div>
+                      {i18n.language === 'ar' ? (
                         <div className="flex break-words break-all">
                           {bacIndividu?.lieuNaissanceArabe}
                         </div>
-                      </div>
+                      ) : (
+                        <div className="flex break-words break-all">
+                          {bacIndividu?.lieuNaissance}
+                        </div>
+                      )}
                     </TableCell>
                   </TableRow>
 
                   <TableRow>
                     <TableCell className="text-primary font-bold break-words break-all">
-                      Identifiant:
+                      {t('identifier')}:
                     </TableCell>
                     <TableCell className="break-words break-all">
                       {bacIndividu?.identifiant}

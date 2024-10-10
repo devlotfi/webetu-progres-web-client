@@ -14,12 +14,15 @@ import {
 } from '@nextui-org/react';
 import { components } from '../__generated__/schema';
 import { $api } from '../open-api-client';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   dia: components['schemas']['DiaDTO'];
 }
 
 export default function DiaItem({ dia }: Props) {
+  const { t, i18n } = useTranslation();
+
   const { data, isLoading } = $api.useQuery(
     'get',
     '/api/infos/logoEtablissement/{etablissementId}',
@@ -54,7 +57,7 @@ export default function DiaItem({ dia }: Props) {
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Matricule:
+                    {t('registration')}:
                   </div>
                   <div className="flex">{dia.numeroMatricule}</div>
                 </TableCell>
@@ -63,81 +66,86 @@ export default function DiaItem({ dia }: Props) {
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Niveau:
+                    {t('level')}:
                   </div>
-                  <div className="flex flex-col">
-                    <div className="flex break-words break-all">
-                      {dia.niveauLibelleLongLt}
-                    </div>
+                  {i18n.language === 'ar' ? (
                     <div className="flex break-words break-all">
                       {dia.niveauLibelleLongAr}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex break-words break-all">
+                      {dia.niveauLibelleLongLt}
+                    </div>
+                  )}
                 </TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Etablissement:
+                    {t('establishment')}:
                   </div>
-                  <div className="flex flex-col">
-                    <div className="flex break-words break-all">
-                      {dia.llEtablissementLatin}
-                    </div>
+                  {i18n.language === 'ar' ? (
                     <div className="flex break-words break-all">
                       {dia.llEtablissementArabe}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex break-words break-all">
+                      {dia.llEtablissementLatin}
+                    </div>
+                  )}
                 </TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Domaine:
+                    {t('domain')}:
                   </div>
-                  <div className="flex flex-col">
-                    <div className="flex break-words break-all">
-                      {dia.ofLlDomaine}
-                    </div>
+                  {i18n.language === 'ar' ? (
                     <div className="flex break-words break-all">
                       {dia.ofLlDomaineArabe}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex break-words break-all">
+                      {dia.ofLlDomaine}
+                    </div>
+                  )}
                 </TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Filiere:
+                    {t('sector')}:
                   </div>
-                  <div className="flex flex-col">
-                    <div className="flex break-words break-all">
-                      {dia.ofLlFiliere}
-                    </div>
+                  {i18n.language === 'ar' ? (
                     <div className="flex break-words break-all">
                       {dia.ofLlFiliereArabe}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex break-words break-all">
+                      {dia.ofLlFiliere}
+                    </div>
+                  )}
                 </TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Specialite:
+                    {t('speciality')}:
                   </div>
                   {dia.ofLlSpecialite && dia.ofLlSpecialiteArabe ? (
-                    <div className="flex flex-col">
-                      <div className="flex break-words break-all">
-                        {dia.ofLlSpecialite}
-                      </div>
+                    i18n.language === 'ar' ? (
                       <div className="flex break-words break-all">
                         {dia.ofLlSpecialiteArabe}
                       </div>
-                    </div>
+                    ) : (
+                      <div className="flex break-words break-all">
+                        {dia.ofLlSpecialite}
+                      </div>
+                    )
                   ) : (
                     <Chip>Inconnu</Chip>
                   )}
@@ -147,14 +155,14 @@ export default function DiaItem({ dia }: Props) {
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Frais inscription:
+                    {t('registrationFees')}:
                   </div>
                   {dia.fraisInscriptionPaye === true ? (
-                    <Chip color="success">Payé</Chip>
+                    <Chip color="success">{t('paid')}</Chip>
                   ) : dia.fraisInscriptionPaye === false ? (
-                    <Chip color="danger">Non Payé</Chip>
+                    <Chip color="danger">{t('notPaid')}</Chip>
                   ) : (
-                    <Chip>Inconnu</Chip>
+                    <Chip>{t('unknown')}</Chip>
                   )}
                 </TableCell>
               </TableRow>
@@ -162,14 +170,14 @@ export default function DiaItem({ dia }: Props) {
               <TableRow>
                 <TableCell className="break-words break-all">
                   <div className="flex text-primary font-bold break-words break-all">
-                    Frais transport:
+                    {t('transportFees')}:
                   </div>
                   {dia.transportPaye === true ? (
-                    <Chip color="success">Payé</Chip>
+                    <Chip color="success">{t('paid')}</Chip>
                   ) : dia.transportPaye === false ? (
-                    <Chip color="danger">Non Payé</Chip>
+                    <Chip color="danger">{t('notPaid')}</Chip>
                   ) : (
-                    <Chip>Inconnu</Chip>
+                    <Chip>{t('unknown')}</Chip>
                   )}
                 </TableCell>
               </TableRow>

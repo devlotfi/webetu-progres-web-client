@@ -1,5 +1,6 @@
 import {
   faComputer,
+  faLanguage,
   faMoon,
   faPowerOff,
   faSun,
@@ -17,6 +18,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../context/theme-context';
 import { ThemeOptions } from '../types/theme-options';
 import { DashboardDataContext } from '../context/dashboard-data-context';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   openSignOutModal: () => void;
@@ -25,6 +27,7 @@ interface Props {
 export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
   const { bacIndividu, image } = useContext(DashboardDataContext);
   const { themeOption, setTheme } = useContext(ThemeContext);
+  const { t, i18n } = useTranslation();
 
   return (
     <Dropdown>
@@ -48,9 +51,9 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
         </div>
       </DropdownTrigger>
       <DropdownMenu
-        selectionMode="single"
+        selectionMode="multiple"
         closeOnSelect={false}
-        selectedKeys={[themeOption]}
+        selectedKeys={[themeOption, i18n.language]}
         onAction={(key) => {
           {
             switch (key) {
@@ -63,6 +66,16 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
               case ThemeOptions.DARK:
                 setTheme(ThemeOptions.DARK);
                 break;
+
+              case 'en':
+                i18n.changeLanguage('en');
+                break;
+              case 'fr':
+                i18n.changeLanguage('fr');
+                break;
+              case 'ar':
+                i18n.changeLanguage('ar');
+                break;
               case 'sign-out':
                 openSignOutModal();
                 break;
@@ -72,10 +85,23 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
       >
         <DropdownSection showDivider>
           <DropdownItem textValue="User">
-            <div className="flex font-bold text-[13pt]">Signed in as: </div>
+            <div className="flex font-bold text-[13pt]">{t('user')}: </div>
             <div className="flex text-[10pt]">
               {bacIndividu?.nomLatin} {bacIndividu?.prenomLatin}
             </div>
+          </DropdownItem>
+        </DropdownSection>
+
+        <DropdownSection showDivider>
+          <DropdownItem
+            key="sign-out"
+            className="text-danger"
+            color="danger"
+            textValue="sign-out"
+            closeOnSelect
+            startContent={<FontAwesomeIcon icon={faPowerOff}></FontAwesomeIcon>}
+          >
+            {t('signOut')}
           </DropdownItem>
         </DropdownSection>
 
@@ -85,34 +111,47 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
             key={ThemeOptions.SYSTEM}
             textValue="system"
           >
-            System
+            {t('system')}
           </DropdownItem>
           <DropdownItem
             startContent={<FontAwesomeIcon icon={faSun}></FontAwesomeIcon>}
             key={ThemeOptions.LIGHT}
             textValue="light"
           >
-            Light
+            {t('light')}
           </DropdownItem>
           <DropdownItem
             startContent={<FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>}
             key={ThemeOptions.DARK}
             textValue="dark"
           >
-            Dark
+            {t('dark')}
           </DropdownItem>
         </DropdownSection>
 
-        <DropdownItem
-          key="sign-out"
-          className="text-danger"
-          color="danger"
-          textValue="sign-out"
-          closeOnSelect
-          startContent={<FontAwesomeIcon icon={faPowerOff}></FontAwesomeIcon>}
-        >
-          Sign out
-        </DropdownItem>
+        <DropdownSection title="Language">
+          <DropdownItem
+            startContent={<FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>}
+            key="en"
+            textValue="en"
+          >
+            English
+          </DropdownItem>
+          <DropdownItem
+            startContent={<FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>}
+            key="fr"
+            textValue="fr"
+          >
+            Français
+          </DropdownItem>
+          <DropdownItem
+            startContent={<FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>}
+            key="ar"
+            textValue="ar"
+          >
+            العربية
+          </DropdownItem>
+        </DropdownSection>
       </DropdownMenu>
     </Dropdown>
   );
