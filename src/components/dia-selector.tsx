@@ -8,7 +8,7 @@ import { DiaSelectorContext } from '../context/dia-selector-context';
 import { useTranslation } from 'react-i18next';
 
 export default function DiaSelector() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { authData } = useContext(AuthContext);
   const { dias } = useContext(DashboardDataContext);
   const { dia: selectedDia, setDia } = useContext(DiaSelectorContext);
@@ -37,14 +37,22 @@ export default function DiaSelector() {
             onPress={() => setDia(dia)}
             variant={selectedDia?.id === dia.id ? 'shadow' : 'faded'}
             color={selectedDia?.id === dia.id ? 'primary' : 'default'}
-            className="px-[2rem] min-w-[10rem] h-auto"
+            className="px-[0.5rem] min-w-[15rem] h-auto w-full"
           >
-            <div className="flex flex-col items-center py-[0.5rem]">
+            <div className="flex flex-col items-center py-[0.5rem] break-words break-all whitespace-break-spaces">
               <div className="flex font-bold text-[12pt]">
                 {dia.anneeAcademiqueCode}
               </div>
-              <div className="flex">{dia.niveauLibelleLongLt}</div>
-              <div className="flex">{dia.niveauLibelleLongAr}</div>
+              <div className="flex font-bold">
+                {i18n.language === 'ar'
+                  ? dia.niveauLibelleLongAr
+                  : dia.niveauLibelleLongLt}
+              </div>
+              <div className="flex">
+                {i18n.language === 'ar'
+                  ? dia.llEtablissementArabe
+                  : dia.llEtablissementLatin}
+              </div>
             </div>
           </Button>
         ))}

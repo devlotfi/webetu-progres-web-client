@@ -68,15 +68,12 @@ export default function DiaItem({ dia }: Props) {
                   <div className="flex text-primary font-bold break-words break-all">
                     {t('level')}:
                   </div>
-                  {i18n.language === 'ar' ? (
-                    <div className="flex break-words break-all">
-                      {dia.niveauLibelleLongAr}
-                    </div>
-                  ) : (
-                    <div className="flex break-words break-all">
-                      {dia.niveauLibelleLongLt}
-                    </div>
-                  )}
+
+                  <div className="flex break-words break-all">
+                    {i18n.language === 'ar'
+                      ? dia.niveauLibelleLongAr
+                      : dia.niveauLibelleLongLt}
+                  </div>
                 </TableCell>
               </TableRow>
 
@@ -85,15 +82,12 @@ export default function DiaItem({ dia }: Props) {
                   <div className="flex text-primary font-bold break-words break-all">
                     {t('establishment')}:
                   </div>
-                  {i18n.language === 'ar' ? (
-                    <div className="flex break-words break-all">
-                      {dia.llEtablissementArabe}
-                    </div>
-                  ) : (
-                    <div className="flex break-words break-all">
-                      {dia.llEtablissementLatin}
-                    </div>
-                  )}
+
+                  <div className="flex break-words break-all">
+                    {i18n.language === 'ar'
+                      ? dia.llEtablissementArabe
+                      : dia.llEtablissementLatin}
+                  </div>
                 </TableCell>
               </TableRow>
 
@@ -102,15 +96,12 @@ export default function DiaItem({ dia }: Props) {
                   <div className="flex text-primary font-bold break-words break-all">
                     {t('domain')}:
                   </div>
-                  {i18n.language === 'ar' ? (
-                    <div className="flex break-words break-all">
-                      {dia.ofLlDomaineArabe}
-                    </div>
-                  ) : (
-                    <div className="flex break-words break-all">
-                      {dia.ofLlDomaine}
-                    </div>
-                  )}
+
+                  <div className="flex break-words break-all">
+                    {i18n.language === 'ar'
+                      ? dia.ofLlDomaineArabe
+                      : dia.ofLlDomaine}
+                  </div>
                 </TableCell>
               </TableRow>
 
@@ -119,15 +110,12 @@ export default function DiaItem({ dia }: Props) {
                   <div className="flex text-primary font-bold break-words break-all">
                     {t('sector')}:
                   </div>
-                  {i18n.language === 'ar' ? (
-                    <div className="flex break-words break-all">
-                      {dia.ofLlFiliereArabe}
-                    </div>
-                  ) : (
-                    <div className="flex break-words break-all">
-                      {dia.ofLlFiliere}
-                    </div>
-                  )}
+
+                  <div className="flex break-words break-all">
+                    {i18n.language === 'ar'
+                      ? dia.ofLlFiliereArabe
+                      : dia.ofLlFiliere}
+                  </div>
                 </TableCell>
               </TableRow>
 
@@ -137,15 +125,11 @@ export default function DiaItem({ dia }: Props) {
                     {t('speciality')}:
                   </div>
                   {dia.ofLlSpecialite && dia.ofLlSpecialiteArabe ? (
-                    i18n.language === 'ar' ? (
-                      <div className="flex break-words break-all">
-                        {dia.ofLlSpecialiteArabe}
-                      </div>
-                    ) : (
-                      <div className="flex break-words break-all">
-                        {dia.ofLlSpecialite}
-                      </div>
-                    )
+                    <div className="flex break-words break-all">
+                      {i18n.language === 'ar'
+                        ? dia.ofLlSpecialiteArabe
+                        : dia.ofLlSpecialite}
+                    </div>
                   ) : (
                     <Chip>Inconnu</Chip>
                   )}

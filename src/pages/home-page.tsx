@@ -61,15 +61,11 @@ export default function HomePage() {
                       {t('lastName')}:
                     </TableCell>
                     <TableCell>
-                      {i18n.language === 'ar' ? (
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.nomArabe}
-                        </div>
-                      ) : (
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.nomLatin}
-                        </div>
-                      )}
+                      <div className="flex break-words break-all">
+                        {i18n.language === 'ar'
+                          ? bacIndividu?.nomArabe
+                          : bacIndividu?.nomLatin}
+                      </div>
                     </TableCell>
                   </TableRow>
 
@@ -78,15 +74,11 @@ export default function HomePage() {
                       {t('firstName')}:
                     </TableCell>
                     <TableCell>
-                      {i18n.language === 'ar' ? (
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.prenomArabe}
-                        </div>
-                      ) : (
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.prenomLatin}
-                        </div>
-                      )}
+                      <div className="flex break-words break-all">
+                        {i18n.language === 'ar'
+                          ? bacIndividu?.prenomArabe
+                          : bacIndividu?.prenomLatin}
+                      </div>
                     </TableCell>
                   </TableRow>
 
@@ -106,15 +98,11 @@ export default function HomePage() {
                       {t('birthPlace')}:
                     </TableCell>
                     <TableCell>
-                      {i18n.language === 'ar' ? (
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.lieuNaissanceArabe}
-                        </div>
-                      ) : (
-                        <div className="flex break-words break-all">
-                          {bacIndividu?.lieuNaissance}
-                        </div>
-                      )}
+                      <div className="flex break-words break-all">
+                        {i18n.language === 'ar'
+                          ? bacIndividu?.lieuNaissanceArabe
+                          : bacIndividu?.lieuNaissance}
+                      </div>
                     </TableCell>
                   </TableRow>
 
