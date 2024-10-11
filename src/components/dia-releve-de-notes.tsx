@@ -1,16 +1,20 @@
-import { Spinner } from '@nextui-org/react';
+import { Divider, Spinner } from '@nextui-org/react';
 import { components } from '../__generated__/schema';
 import { $api } from '../open-api-client';
 import { faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth-context';
+import { useTranslation } from 'react-i18next';
+import DiaBilanAnnuel from './dia-bilan-annuel';
+import DiaPeriodeBilans from './dia-periode-bilans';
 
 interface Props {
   dia: components['schemas']['DiaDTO'];
 }
 
 export default function DiaReleveDeNotes({ dia }: Props) {
+  const { t, i18n } = useTranslation();
   const { authData } = useContext(AuthContext);
 
   if (!authData) {
@@ -49,7 +53,7 @@ export default function DiaReleveDeNotes({ dia }: Props) {
     );
   }
 
-  if (!bilanAnnueldata || !periodeBilansData) {
+  if (!periodeBilansData || !Array.isArray(periodeBilansData)) {
     return;
   }
 
@@ -59,11 +63,12 @@ export default function DiaReleveDeNotes({ dia }: Props) {
         <div className="flex h-[2.8rem] w-[2.8rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
           <FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
         </div>
-        <div className="flex">Releve do notes</div>
+        <div className="flex">{t('transcripts')}</div>
       </div>
 
-      <div className="flex">{JSON.stringify(bilanAnnueldata)}</div>
-      {JSON.stringify(periodeBilansData)}
+      <DiaBilanAnnuel bilansAnnuels={bilanAnnueldata}></DiaBilanAnnuel>
+      <Divider></Divider>
+      <DiaPeriodeBilans periodeBilans={periodeBilansData}></DiaPeriodeBilans>
     </div>
   );
 }

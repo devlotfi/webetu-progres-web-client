@@ -1,19 +1,19 @@
-import { jwtDecode } from "jwt-decode";
-import { components } from "./__generated__/schema";
-import { Constants } from "./constants";
+import { jwtDecode } from 'jwt-decode';
+import { components } from './__generated__/schema';
+import { Constants } from './constants';
 
 export const getLocalAuthData = ():
-  | components["schemas"]["AuthenticationResponseDTO"]
+  | components['schemas']['AuthenticationResponseDTO']
   | null => {
   try {
     const authDataString = localStorage.getItem(
-      Constants.AUTH_DATA_STORAGE_KEY
+      Constants.AUTH_DATA_STORAGE_KEY,
     );
     if (!authDataString) {
       return null;
     }
 
-    const authData: components["schemas"]["AuthenticationResponseDTO"] =
+    const authData: components['schemas']['AuthenticationResponseDTO'] =
       JSON.parse(authDataString);
     const payload = jwtDecode(authData.token);
 
@@ -26,4 +26,11 @@ export const getLocalAuthData = ():
     localStorage.removeItem(Constants.AUTH_DATA_STORAGE_KEY);
     return null;
   }
+};
+
+export const formatDate = (date: Date) => {
+  const formatZero = (value: number) => (value < 10 ? `0${value}` : value);
+  return `${date.getFullYear()}/${formatZero(date.getMonth() + 1)}/${formatZero(
+    date.getDate(),
+  )}`;
 };

@@ -88,7 +88,7 @@ export default function DiaGroupes({ dia }: Props) {
               <TableBody className="p-0">
                 <TableRow>
                   <TableCell className="break-words break-all flex text-primary font-bold">
-                    Section:
+                    {t('section')}:
                   </TableCell>
                   <TableCell className="break-words break-all">
                     {group.nomSection}
@@ -97,7 +97,7 @@ export default function DiaGroupes({ dia }: Props) {
 
                 <TableRow>
                   <TableCell className="break-words break-all flex text-primary font-bold">
-                    Groupe:
+                    {t('group')}:
                   </TableCell>
                   <TableCell className="break-words break-all">
                     {group.nomGroupePedagogique}

@@ -17,6 +17,8 @@ export interface AppTranslation {
   birthDate: string;
   birthPlace: string;
   identifier: string;
+
+  settings: string;
   theme: string;
   system: string;
   light: string;
@@ -41,6 +43,12 @@ export interface AppTranslation {
   paid: string;
   notPaid: string;
   unknown: string;
+
+  decision: string;
+  annualAverage: string;
+  average: string;
+  obtainedCredits: string;
+  aquiredCredits: string;
 
   signOut: string;
   signOutModalTitle: string;

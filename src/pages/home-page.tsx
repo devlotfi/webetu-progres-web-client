@@ -16,17 +16,11 @@ import { useContext } from 'react';
 import { DashboardDataContext } from '../context/dashboard-data-context';
 import Progres from '../assets/svg/progres.svg';
 import { useTranslation } from 'react-i18next';
+import { formatDate } from '../utils';
 
 export default function HomePage() {
   const { t, i18n } = useTranslation();
   const { image, bacIndividu } = useContext(DashboardDataContext);
-
-  const formatZero = (value: number) => (value < 10 ? `0${value}` : value);
-  const formatDate = (date: Date) => {
-    return `${date.getFullYear()}/${formatZero(
-      date.getMonth() + 1,
-    )}/${formatZero(date.getDate())}`;
-  };
 
   return (
     <div className="flex flex-1 flex-col items-center space-y-7">

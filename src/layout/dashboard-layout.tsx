@@ -19,6 +19,7 @@ import SidebarItem from '../components/sidebar-item';
 import { useTranslation } from 'react-i18next';
 import { ThemeOptions } from '../types/theme-options';
 import { ThemeContext } from '../context/theme-context';
+import SettingsModal from '../components/settings-modal';
 
 export default function DashboardLayout() {
   const { t } = useTranslation();
@@ -26,7 +27,16 @@ export default function DashboardLayout() {
   const navigate = useNavigate();
   const { sidebarOpen, setSidebarOpen } = useContext(DashboardDataContext);
   const { appliedTheme } = useContext(ThemeContext);
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const {
+    isOpen: signOutModalIsOpen,
+    onOpen: signOutModalOnOpen,
+    onOpenChange: signOutModalOnOpenChange,
+  } = useDisclosure();
+  const {
+    isOpen: settingsModalIsOpen,
+    onOpen: settingsModalOnOpen,
+    onOpenChange: settingsModalOnOpenChange,
+  } = useDisclosure();
 
   const sidebarNavigate = (path: string) => {
     navigate(path);
@@ -84,7 +94,7 @@ export default function DashboardLayout() {
             active={location.pathname === '/dashboard/groupes'}
             onPress={() => sidebarNavigate('/dashboard/groupes')}
           >
-            Groupes
+            {t('groups')}
           </SidebarItem>
           <SidebarItem
             icon={faFolderOpen}
@@ -125,11 +135,17 @@ export default function DashboardLayout() {
           </div>
 
           <DashboardNavbarDropdown
-            openSignOutModal={onOpen}
+            openSettingsModal={settingsModalOnOpen}
+            openSignOutModal={signOutModalOnOpen}
           ></DashboardNavbarDropdown>
+
+          <SettingsModal
+            isOpen={settingsModalIsOpen}
+            onOpenChange={settingsModalOnOpenChange}
+          ></SettingsModal>
           <SignOutModal
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
+            isOpen={signOutModalIsOpen}
+            onOpenChange={signOutModalOnOpenChange}
           ></SignOutModal>
         </div>
 

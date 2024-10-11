@@ -7,7 +7,7 @@ export default function ReleveDeNotesPage() {
   const { dia } = useContext(DiaSelectorContext);
 
   return (
-    <div className="flex flex-col flex-1 items-center pt-[2rem] px-[0.5rem]">
+    <div className="flex flex-col flex-1 items-center py-[2rem] px-[0.5rem]">
       <div className="flex flex-col w-full max-w-[55rem]">
         <DiaSelector></DiaSelector>
 

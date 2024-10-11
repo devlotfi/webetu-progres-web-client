@@ -15,6 +15,19 @@ export default {
       themes: {
         light: {
           colors: {
+            secondary: {
+              50: '#d9f9ff',
+              100: '#abe7ff',
+              200: '#7bd6ff',
+              300: '#49c5ff',
+              400: '#1ab4fe',
+              500: '#019be5',
+              600: '#0078b3',
+              700: '#005681',
+              800: '#003550',
+              900: '#001320',
+              DEFAULT: '#01a8f8',
+            },
             primary: {
               50: '#dcfffa',
               100: '#afffef',
@@ -36,6 +49,19 @@ export default {
             content1: '#313134',
             background: {
               DEFAULT: '#313134',
+            },
+            secondary: {
+              50: '#d9f9ff',
+              100: '#abe7ff',
+              200: '#7bd6ff',
+              300: '#49c5ff',
+              400: '#1ab4fe',
+              500: '#019be5',
+              600: '#0078b3',
+              700: '#005681',
+              800: '#003550',
+              900: '#001320',
+              DEFAULT: '#01a8f8',
             },
             primary: {
               50: '#dcfffa',

@@ -4,7 +4,7 @@ export const frTranslation: AppTranslation = {
   signIn: 'Connexion',
   username: "Nom d'utilisateur",
   password: 'Mot de passe',
-  welcomeMessage: 'Bienvenu sur la plateform progres',
+  welcomeMessage: 'Bienvenu sur la plateforme progres',
   anErrorOccured: 'Une erreur est survenue',
 
   home: 'Acceuil',
@@ -19,6 +19,8 @@ export const frTranslation: AppTranslation = {
   birthDate: 'Date de naissance',
   birthPlace: 'Lieu de naissance',
   identifier: 'Identifiant',
+
+  settings: 'Paramétres',
   theme: 'Théme',
   system: 'Systéme',
   light: 'Clair',
@@ -31,6 +33,12 @@ export const frTranslation: AppTranslation = {
   choosePeriod: 'Choisir periode',
   section: 'Section',
   group: 'Groupe',
+
+  decision: 'Decision',
+  annualAverage: 'Moyenne anuelle',
+  average: 'Moyenne',
+  obtainedCredits: 'Credits obtenus',
+  aquiredCredits: 'Credit aquis',
 
   registration: 'Matricule',
   level: 'Niveau',

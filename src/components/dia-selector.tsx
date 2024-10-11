@@ -1,4 +1,4 @@
-import { Button } from '@nextui-org/react';
+import { Button, ScrollShadow } from '@nextui-org/react';
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth-context';
 import { DashboardDataContext } from '../context/dashboard-data-context';
@@ -22,7 +22,7 @@ export default function DiaSelector() {
   }
 
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <div className="flex flex-col overflow-x-hidden mb-[1rem]">
       <div className="flex items-center space-x-3 text-primary font-bold text-[15pt]">
         <div className="flex h-[2.3rem] w-[2.3rem] justify-center items-center rounded-full bg-primary text-primary-foreground">
           <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
@@ -30,13 +30,18 @@ export default function DiaSelector() {
         <div className="flex">{t('choosePeriod')}</div>
       </div>
 
-      <div className="flex overflow-x-auto space-x-5 py-[1.7rem] px-[1rem]">
+      <ScrollShadow
+        orientation="horizontal"
+        className="flex overflow-x-auto space-x-5 py-[1.7rem] px-[1rem]"
+        size={150}
+      >
+        {/* <div className="flex overflow-x-auto space-x-5 py-[1.7rem] px-[1rem]"> */}
         {dias.map((dia) => (
           <Button
             key={dia.id}
             onPress={() => setDia(dia)}
             variant={selectedDia?.id === dia.id ? 'shadow' : 'faded'}
-            color={selectedDia?.id === dia.id ? 'primary' : 'default'}
+            color={selectedDia?.id === dia.id ? 'secondary' : 'default'}
             className="px-[0.5rem] min-w-[15rem] h-auto w-full"
           >
             <div className="flex flex-col items-center py-[0.5rem] break-words break-all whitespace-break-spaces">
@@ -56,7 +61,7 @@ export default function DiaSelector() {
             </div>
           </Button>
         ))}
-      </div>
+      </ScrollShadow>
     </div>
   );
 }
