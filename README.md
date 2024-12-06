@@ -18,7 +18,16 @@ The goal of this repository is to use the existing api used by the preogres mobi
 
 # 💻 Tech stack
 
-<img src="https://skillicons.dev/icons?i=html,css,tailwind,typescript,react&perline=5" />
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/html.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/css.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/ts.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tailwind.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/react.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nextui.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
+</p>
 
 - Next UI as a ui library
 - React I18N for multi language support
