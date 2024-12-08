@@ -27,6 +27,7 @@ The goal of this repository is to use the existing api used by the preogres mobi
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nextui.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/vite.svg">
 </p>
 
 - Next UI as a ui library
