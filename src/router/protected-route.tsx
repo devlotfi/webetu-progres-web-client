@@ -1,6 +1,6 @@
-import { PropsWithChildren, useContext } from "react";
-import { AuthContext } from "../context/auth-context";
-import { Navigate } from "react-router-dom";
+import { PropsWithChildren, useContext } from 'react';
+import { AuthContext } from '../context/auth-context';
+import { Navigate } from 'react-router';
 
 export default function ProtectedRoute({ children }: PropsWithChildren) {
   const { authData } = useContext(AuthContext);

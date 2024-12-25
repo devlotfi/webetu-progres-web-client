@@ -12,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { DashboardDataContext } from '../context/dashboard-data-context';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 import DashboardNavbarDropdown from '../components/dashboard-navbar-dropdown';
 import SignOutModal from '../components/sign-out-modal';
 import SidebarItem from '../components/sidebar-item';
