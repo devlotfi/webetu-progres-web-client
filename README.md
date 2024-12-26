@@ -29,10 +29,6 @@ The goal of this repository is to use the existing api used by the preogres mobi
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/vite.svg">
 </p>
-
-- Next UI as a ui library
-- React I18N for multi language support
-- React Query
 - OpenAPI TypeScript to create a typesafe api client (It uses the openApi definition defined [here](https://github.com/devlotfi/webetu-progres-api-docs))
 
 ## 📷 Preview
