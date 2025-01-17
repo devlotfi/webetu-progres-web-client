@@ -19,16 +19,16 @@ The goal of this repository is to use the existing api used by the preogres mobi
 # 💻 Tech stack
 
 <p float="left">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/html.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/css.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/ts.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tailwind.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/react.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nextui.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/react-router.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/vite.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/html.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/css.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/ts.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/tailwind.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/react.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/fontawesome.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/nextui.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/reactquery.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/react-router.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/vite.svg">
 </p>
 - OpenAPI TypeScript to create a typesafe api client (It uses the openApi definition defined [here](https://github.com/devlotfi/webetu-progres-api-docs))
 
