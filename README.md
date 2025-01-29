@@ -1,4 +1,4 @@
-<img height="100px" width="100px" src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/logo.svg">
+<img height="100px" width="100px" src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/logo.svg">
 
 # 📜 Webetu Progres (Web Client Preview) {Unofficial}
 
@@ -30,13 +30,13 @@ The goal of this repository is to use the existing api used by the preogres mobi
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/react-router.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/vite.svg">
 </p>
-- OpenAPI TypeScript to create a typesafe api client (It uses the openApi definition defined [here](https://github.com/devlotfi/webetu-progres-api-docs))
+- OpenAPI TypeScript to create a typesafe api client (It uses the openApi definition defined [here](https://raw.githubusercontent.com/devlotfi/webetu-progres-api-docs))
 
 ## 📷 Preview
 
-<img src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/preview-1.png">
-<img src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/preview-2.png">
-<img src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/preview-3.png">
-<img src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/preview-4.png">
-<img src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/preview-5.png">
-<img src="https://github.com/devlotfi/webetu-progres-web-client/blob/main/github-assets/preview-6.png">
+<img src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/preview-1.png">
+<img src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/preview-2.png">
+<img src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/preview-3.png">
+<img src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/preview-4.png">
+<img src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/preview-5.png">
+<img src="https://raw.githubusercontent.com/devlotfi/webetu-progres-web-client/main/github-assets/preview-6.png">
