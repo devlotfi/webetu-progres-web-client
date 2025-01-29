@@ -26,7 +26,7 @@ The goal of this repository is to use the existing api used by the preogres mobi
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/react.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/fontawesome.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/heroui.svg">
-  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/reactquery.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/tanstack-query.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/react-router.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/vite.svg">
 </p>
